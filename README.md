@@ -38,6 +38,57 @@ El proyecto usa las librerías:
 - UniversalTelegramBot.h
 - ArduinoJson.h
 
+# ESP32 + Telegram + Google Sites
+
+Este proyecto conecta un **ESP32** con un **bot de Telegram** para enviar y recibir mensajes, y luego publica los datos en **Google Sites** usando Google Sheets como backend.
+
+---
+
+## 🚀 Requisitos
+
+- **Hardware**: ESP32
+- **Software**:
+  - Arduino IDE (o PlatformIO)
+  - Librerías: `WiFi.h`, `WiFiClientSecure.h`, `UniversalTelegramBot`
+- **Servicios**:
+  - Bot de Telegram (token desde @BotFather)
+  - Cuenta de Google (Sheets + Sites)
+
+---
+
+## ⚙️ Configuración del Bot de Telegram
+
+1. Abre Telegram y busca `@BotFather`.
+2. Ejecuta `/newbot` y sigue las instrucciones.
+3. Copia el **token del bot** que te entrega.
+
+---
+
+## 📲 Código de Ejemplo (Arduino IDE)
+
+```cpp
+#include <WiFi.h>
+#include <WiFiClientSecure.h>
+#include <UniversalTelegramBot.h>
+
+const char* ssid = "TU_SSID";
+const char* password = "TU_PASSWORD";
+const char* botToken = "TOKEN_DEL_BOT";
+
+WiFiClientSecure client;
+UniversalTelegramBot bot(botToken, client);
+
+void setup() {
+  Serial.begin(115200);
+  WiFi.begin(ssid, password);
+  client.setInsecure(); // evita problemas con certificados
+}
+
+void loop() {
+  bot.sendMessage("TU_CHAT_ID", "Hola desde ESP32!");
+  delay(10000);
+}
+
 Ejemplo de integración:
 
 ```cpp
