@@ -38,7 +38,7 @@ El proyecto usa las librerías:
 - UniversalTelegramBot.h
 - ArduinoJson.h
 
-# ESP32 + Telegram + Google Sites
+# ESP32 + Telegram
 
 Este proyecto conecta un **ESP32** con un **bot de Telegram** para enviar y recibir mensajes, y luego publica los datos en **Google Sites** usando Google Sheets como backend.
 
@@ -52,7 +52,6 @@ Este proyecto conecta un **ESP32** con un **bot de Telegram** para enviar y reci
   - Librerías: `WiFi.h`, `WiFiClientSecure.h`, `UniversalTelegramBot`
 - **Servicios**:
   - Bot de Telegram (token desde @BotFather)
-  - Cuenta de Google (Sheets + Sites)
 
 ---
 
